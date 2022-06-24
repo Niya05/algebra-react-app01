@@ -5,11 +5,3 @@
 .form-field + .form-field {
   margin-top: 16px;
 }
-
-.button {
-  min-height: 32px;
-  border: 1px solid rgb(133, 132, 214);
-  background-color: rgb(133, 132, 214);
-  color: white;
-  padding: 0 8px;
-}
