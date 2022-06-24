@@ -1,16 +1,7 @@
 import "./App.css";
+import { InputElement } from "./components/InputElement";
 
 // Komponenta - gradivna jedinica Reacta
-function InputElement({ label, type }) {
-  return (
-    <label>
-      <div className="label">{label}</div>
-      <input className="input" type={type} />
-    </label>
-  );
-}
-
-
 function App() {
   return (
     <form className="form">
