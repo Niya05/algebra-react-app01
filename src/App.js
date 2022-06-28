@@ -14,8 +14,8 @@ function App() {
 
   return (
     <div>
-      <Counter />
       {isSignedIn && <User src="/owlbear.png" username="Niya" />}
+      <Counter initialValue={0} />
       <form className="form">
         <div className="form-field">
           <InputElement label="Username" type="text" />

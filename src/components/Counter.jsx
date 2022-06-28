@@ -1,16 +1,24 @@
 import "./counter.css";
 import { useState } from "react";
 
-export function Counter() {
-    const counterState = useState(0);
+export function Counter(props) {
+    const counterState = useState(props.initialValue);
     const counter = counterState[0];
     const setCounter = counterState[1];
 
-    const handleClick = () => {
-        console.log('click', counter);
+    const handleDecrease = () => {
         //setCounter(counter + 1); ++ radi mutaciju state-a bez uporabe state counter
+        setCounter((state) => --state);
+    }
+    const handleIncrease = () => {
         setCounter((state) => ++state);
     }
 
-    return <button className="counter" onClick={handleClick}>{counter}</button>;
+    return (
+        <div>
+        <button className="counter" onClick={handleDecrease}>-</button>
+        <span>{counter}</span>
+        <button className="counter" onClick={handleIncrease}>+</button>
+        </div>
+    );
 }
