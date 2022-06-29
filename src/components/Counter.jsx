@@ -7,7 +7,7 @@ export function Counter(props) {
     const counter = counterState[0];
     const setCounter = counterState[1];
 
-    const handleDecrease = () => {
+    const handleDecrease = () => {   // handle - handle event
         //setCounter(counter + 1); ++ radi mutaciju state-a bez uporabe state counter
         setCounter((state) => --state);
     }
