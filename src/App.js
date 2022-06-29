@@ -43,14 +43,29 @@ function App() {
     <div>
       <Counter initialValue={0} />
       <Counter initialValue={100} />
-      {isSignedIn && (<Button type="button" onClick={signOut}>Sign out</Button>)}
+      {isSignedIn && (
+        <Button type="button" onClick={signOut}>
+          Sign out
+        </Button>
+      )}
       {isSignedIn && <User src="/owlbear.png" username={user.username} />}
-      {!isSignedIn && (<form className="form" onSubmit={handleSubmit}>
+      {!isSignedIn && (
+        <form className="form" onSubmit={handleSubmit}>
           <div className="form-field">
-            <InputElement name="username" label="Username" type="text" onChange={handleChange} />
+            <InputElement
+              name="username"
+              label="Username"
+              type="text"
+              onChange={handleChange}
+            />
           </div>
           <div className="form-field">
-            <InputElement name="password" label="Password" type="password" onChange={handleChange} />
+            <InputElement
+              name="password"
+              label="Password"
+              type="password"
+              onChange={handleChange}
+            />
           </div>
           <div className="form-field">
             <Button type="submit">Sign in</Button>

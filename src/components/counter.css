@@ -1,6 +1,6 @@
 .counter {
   display: inline-block;
   padding: 16px;
-  background: teal;
-  color: white;
+  background: rgb(195, 194, 240);
+  color: black;
 }
