@@ -2,22 +2,19 @@ import Button from "../components/Button";
 import { InputElement } from "../components/InputElement";
 import { User } from "../components/User";
 import { useState } from "react";
-import { useEffect } from "react";
 
 export function ChatRoomPage(props) {
   const [formState, setFormState] = useState({ message: '' });
   const [messages, setMessages] = useState([]);
 
-/*  useEffect(() => {                       // hook
-    console.log('New message stored!');  // Praćenje promjena stanja i props-a u komponenti
-  }, [messages]);
-*/  
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (formState.message !== '') {
-      setMessages((state) => [...state, formState]);
+      setMessages((state) => [
+        ...state,
+        { ...formState, author: props.user.username },
+      ]);
       setFormState({ message: '' });
     }
   }
@@ -29,7 +26,12 @@ export function ChatRoomPage(props) {
     }));
   }
 
-  const messagesElements = messages.map((item) => <div>{item.message}</div>)
+  const messageElements = messages.map((item, index) => (
+    <div key={index}>
+      <div>{item.author}</div>
+      <div>{item.message}</div>
+    </div>
+  ));
 
   return (
     <div>
@@ -37,13 +39,17 @@ export function ChatRoomPage(props) {
       <User src="/owlbear.png" username={props.user.username} />
       <form className="form" onSubmit={handleSubmit}>
         <div className="form-field">
-          <InputElement name="message" label="Message" type="text" onChange={handleChange} value={formState.message} />
+          <InputElement name="message"
+            label="Message"
+            type="text"
+            onChange={handleChange}
+            value={formState.message} />
         </div>
         <div className="form-field">
           <Button type="submit">Send</Button>
         </div>
       </form>
-      {messagesElements}
+      {messageElements}
     </div>
   );
 }
