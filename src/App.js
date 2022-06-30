@@ -7,18 +7,19 @@ import { User } from "./components/User";
 import { useState } from "react";
 
 function App() {
-  const [formState, setFormState] = useState({ username: "", password: "" });
+  const [formState, setFormState] = useState({ username: "" });
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (formState.password === "password") {
+    if (formState.username === "") {
+      setError(true);
+    } else {
       setUser(formState);
       setError(null);
-    } else {
-      setError(true);
+      setFormState({ username: "" });
     }
   };
 
@@ -57,16 +58,7 @@ function App() {
             />
           </div>
           <div className="form-field">
-            <InputElement
-              name="password"
-              label="Password"
-              type="password"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-field">
             <Button type="submit">Sign in</Button>
-            <Button type="reset">Reset</Button>
           </div>
           <FormError visible={showErrorMessage} />
           <FormMessage visible={showFormMessage} />
