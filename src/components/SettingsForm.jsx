@@ -58,10 +58,10 @@ export function SettingsForm(props) {
           onChange={handleChange}
           value={formState.backgroundColor}
           options={[
+            { value: "", label: "None" },
             { value: "black", label: "Black" },
             { value: "blue", label: "Blue" },
             { value: "green", label: "Green" },
-            { value: "", label: "None" },
             { value: "red", label: "Red" },
             { value: "white", label: "White" },
           ]}
