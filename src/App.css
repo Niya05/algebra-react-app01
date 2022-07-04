@@ -5,16 +5,6 @@
   margin-top: 16px;
 }
 
-select {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid rgb(195, 194, 240);
-  min-height: 32px;
-  padding: 0 8px;
-}
-
-input[type="checkbox"],
 input[type="radio"] {
   width: 1em;
   height: 1em;
@@ -24,7 +14,6 @@ input[type="radio"] {
   margin-right: 0.5em;
 }
 
-input[type="checkbox"]:checked,
 input[type="radio"]:checked {
   background-color: rgb(195, 194, 240);
   box-shadow: inset 0 0 0 2px white;
@@ -32,4 +21,14 @@ input[type="radio"]:checked {
 
 input[type="radio"] {
   border-radius: 100%;
+}
+
+.message-list {
+  width: calc(100% - 32px);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.message-list .message {
+  margin: 16px 0;
 }
