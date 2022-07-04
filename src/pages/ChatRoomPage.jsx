@@ -3,7 +3,7 @@ import { InputElement } from "../components/InputElement";
 import { User } from "../components/User";
 import { useState } from "react";
 import { SettingsForm } from "../components/SettingsForm";
-import { Avatar } from "../components/Avatar";
+import { Message } from "../components/Message";
 
 export function ChatRoomPage(props) {
   const [formState, setFormState] = useState({ message: '' });
@@ -38,27 +38,18 @@ export function ChatRoomPage(props) {
   }
 
   const messageElements = messages.map((item, index) => (
-    <div key={index}
-      style={{
-        backgroundColor: item.settings.backgroundColor || "transparent",
-        color: item.settings.textColor || "black"
-      }}
-    >
-      {item.settings.showAvatar && <div>
-        <Avatar
-          username={item.settings.displayName || item.author}
-          src={item.settings.avatarUrl || "/owlbear.png"}
-        />
-      </div>}
-      <div>{item.settings.displayName || item.author}</div>
-      <div>{item.message}</div>
-    </div>
+    <Message
+      key={index}
+      settings={item.settings}
+      author={item.author}
+      message={item.message}
+    />
   ));
 
   return (
     <div>
       <Button type="button" onClick={props.onSignOut}>Sign out</Button>
-      <User src="/owlbear.png" username={props.user.username} />
+      <User src="/avatar.svg" username={props.user.username} />
 
       <SettingsForm user={props.user} onSubmit={updateSettings} />
 
@@ -74,7 +65,9 @@ export function ChatRoomPage(props) {
           <Button type="submit">Send</Button>
         </div>
       </form>
-      {messageElements}
+      <div className="message-list">
+        {messageElements}
+      </div>
     </div>
   );
 }
