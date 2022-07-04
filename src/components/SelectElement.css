@@ -1,0 +1,8 @@
+select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(195, 194, 240);
+  min-height: 32px;
+  padding: 0 8px;
+}

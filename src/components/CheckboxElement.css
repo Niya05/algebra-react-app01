@@ -8,6 +8,6 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-  background-color: teal;
+  background-color: rgb(195, 194, 240);
   box-shadow: inset 0 0 0 2px white;
 }
