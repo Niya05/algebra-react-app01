@@ -2,6 +2,7 @@ import Button from "../components/Button";
 import { InputElement } from "../components/InputElement";
 import { User } from "../components/User";
 import { useState } from "react";
+import { SettingsForm } from "../components/SettingsForm";
 
 export function ChatRoomPage(props) {
   const [formState, setFormState] = useState({ message: '' });
@@ -36,7 +37,10 @@ export function ChatRoomPage(props) {
   return (
     <div>
       <Button type="button" onClick={props.onSignOut}>Sign out</Button>
-      <User src="/owlbear.png" username={props.user.username} />
+      <User src="/avatar.svg" username={props.user.username} />
+
+      <SettingsForm user={props.user} />
+
       <form className="form" onSubmit={handleSubmit}>
         <div className="form-field">
           <InputElement name="message"
