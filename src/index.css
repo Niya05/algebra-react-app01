@@ -1,9 +1,9 @@
 :root {
-  --color-primary: #008080;
+  --color-primary: rgb(133, 132, 214);
   --color-primary-dark-1: #000745;
   --color-primary-dark-2: #003863;
-  --color-primary-light-1: #66b788;
-  --color-primary-light-2: #cde8cc;
+  --color-primary-light-1: rgb(156, 155, 216);
+  --color-primary-light-2: rgb(200, 200, 218);
   --color-primary-text: #fff;
   --color-text: #222;
   --color-error: red;
