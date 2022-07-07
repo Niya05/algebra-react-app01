@@ -11,6 +11,18 @@ function TermsOfServicePage() {
   return (
     <div>
       <h1>Terms of Service</h1>
+      <br />
+      <Link to="/">Back to application</Link>
+    </div>
+  );
+}
+
+function PageNotFound() {
+  return (
+    <div>
+      <h1>404 Error</h1>
+      <h1>Page Not Found</h1>
+      <br />
       <Link to="/">Back to application</Link>
     </div>
   );
@@ -24,6 +36,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/tos" element={<TermsOfServicePage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </AppProvider>
     </BrowserRouter>
