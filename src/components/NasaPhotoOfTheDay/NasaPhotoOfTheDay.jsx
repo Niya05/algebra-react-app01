@@ -1,14 +1,11 @@
 import "./NasaPhotoOfTheDay.css";
-
 import { useEffect, useState } from "react";
-import data from "./data.json";
 
 function getPhotoOfTheDay() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(data);
-    }, 5000);
-  });
+  return fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+    .then((response) => {
+      return response.json();
+    });
 }
 
 export function NasaPhotoOfTheDay() {
@@ -18,11 +15,11 @@ export function NasaPhotoOfTheDay() {
   useEffect(() => {
     getPhotoOfTheDay()
       .then((data) => { setData(data); })
-      .catch(() => { setError(new Error('Something went wrong')); });
+      .catch((error) => { setError(error); });
   }, []);
 
   if (error !== null) {
-    return <div>Something went wrong!</div>;
+    return <div>{error.message}</div>;
   }
 
   if (data === null) {
@@ -34,5 +31,5 @@ export function NasaPhotoOfTheDay() {
       <img src={data.url} alt={data.title} />
       <figcaption>{data.explanation}</figcaption>
     </figure>
-  )
-}
+  );
+};
